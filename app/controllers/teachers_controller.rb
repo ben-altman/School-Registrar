@@ -3,6 +3,7 @@ class TeachersController < ApplicationController
   end
 
   def create
+    
   end
 
   def show
