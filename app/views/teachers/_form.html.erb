@@ -1,12 +1,12 @@
-<%= form_with(model: @teacher, url: signup_path) do |f| %>
+<%= form_with(model: :@teacher) do |f| %>
     <%= f.label :name %>:
-    <%= f.text_field :name %>
+    <%= f.text_field :name, :required => true %>
     <br/><br/>
     <%= f.label :email %>:
-    <%= f.text_field :email %>
+    <%= f.email_field :email, :required => true %>
     <br/><br/>
     <%= f.label :password %>:
-    <%= f.password_field :password %>
+    <%= f.password_field :password, :required => true %>
     <br/><br/>
     <%= f.label :password_confirmation, "Confirm Password" %>: 
     <%= f.password_field :password_confirmation %>
