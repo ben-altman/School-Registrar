@@ -2,6 +2,7 @@ class TeachersController < ApplicationController
   
   # signup form
   def new
+    @teacher = Teacher.new
   end
 
   #signup

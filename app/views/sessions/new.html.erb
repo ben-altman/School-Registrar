@@ -1,12 +1,8 @@
-<h1>New Teacher Sign Up: </h1>
-<p>Enter all information in order to sign up.</p>
+<h1>Log In</h1>
 
-<%= form_with model: @teacher, url: signup_path do |f| %>
+<%= form_with(model: @teacher) do |f| %>
     <%= f.label :name %>:
     <%= f.text_field :name, :required => true %>
-    <br/><br/>
-    <%= f.label :email %>:
-    <%= f.email_field :email, :required => true %>
     <br/><br/>
     <%= f.label :password %>:
     <%= f.password_field :password, :required => true %>
@@ -15,5 +11,4 @@
     <%= f.password_field :password_confirmation %>
     <br/><br/>
     <%= f.submit "Submit" %>
-
 <% end %>
