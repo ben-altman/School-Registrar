@@ -1,6 +1,6 @@
 <h1>Log In</h1>
 
-<%= form_with(model: @teacher) do |f| %>
+<%= form_with model: @teacher, url: '/login' do |f| %>
     <%= f.label :name %>:
     <%= f.text_field :name, :required => true %>
     <br/><br/>
@@ -10,5 +10,5 @@
     <%= f.label :password_confirmation, "Confirm Password" %>: 
     <%= f.password_field :password_confirmation %>
     <br/><br/>
-    <%= f.submit "Submit" %>
+    <%= f.submit "Log In" %>
 <% end %>
