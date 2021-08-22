@@ -3,6 +3,16 @@ class SessionsController < ApplicationController
     def welcome
     end
 
+    def omniauth
+        teacher = Teacher.from_omniauth(request.env['omniauth.auth'])
+        if teacher.valid?
+            session[:teacher_id] = teacher.id
+            redirect_to teacher_path(teacher)
+        else
+            redirect_to 'login'
+        end
+    end
+
     # show login form
     def new
         @teacher = Teacher.new
