@@ -1,0 +1,12 @@
+
+<%= form_with url: courses_path do |f| %>
+    <%= f.label :title, "Course title: " %>
+    <%= f.text_field :title %>
+    <%= f.label :size, "Class size: " %>
+    <%= f.number_field :size %>
+    <%= f.label :size, "Prerequisites: " %>
+    <%= f.text_field :prerequisites %>
+    <%= f.label :requirements, "Course requirements: " %>
+    <%= f.collection_check_boxes :requirement_id, Requirement.all, :id, :name %>
+    <%= f.submit "Create course" %>
+<% end %>
