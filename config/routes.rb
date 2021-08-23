@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
-  resources :subjects, only: [:index, :show]
+  resources :subjects, only: [:index, :show] do
+    resources :courses
+  end
+  
   resources :courses
 
   match '/auth/:provider/callback', to: 'sessions#omniauth', via: [:get, :post]
