@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root 'sessions#welcome'
+  resources :courses
 
   match '/auth/:provider/callback', to: 'sessions#omniauth', via: [:get, :post]
   # get '/auth/:provider', to: 'sessions#omniauth'
@@ -12,6 +12,8 @@ Rails.application.routes.draw do
   get '/teachers/:id', to: 'teachers#show', as: 'teacher'
   get '/signup', to: 'teachers#new'
   post '/signup', to: 'teachers#create', as: 'teachers'
+
+  root 'sessions#welcome'
 
   
   # resources :teachers
