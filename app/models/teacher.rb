@@ -5,6 +5,7 @@ class Teacher < ApplicationRecord
     validates :name, :email, uniqueness: true
 
     has_many :courses
+    has_many :subjects, through: :courses
 
     def self.from_omniauth(response)
         Teacher.find_or_create_by(uid: response[:uid], provider: response[:provider]) do |u|
