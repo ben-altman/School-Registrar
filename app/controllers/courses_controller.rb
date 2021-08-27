@@ -4,6 +4,7 @@ class CoursesController < ApplicationController
     end
     
     def create
+        byebug
     end
 
     def edit

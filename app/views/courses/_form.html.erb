@@ -1,12 +1,30 @@
 
 <%= form_with url: courses_path do |f| %>
+    <div>
     <%= f.label :title, "Course title: " %>
     <%= f.text_field :title %>
+    </div><br/>
+    <div>
     <%= f.label :size, "Class size: " %>
     <%= f.number_field :size %>
+    </div><br/>
+    <div>
     <%= f.label :size, "Prerequisites: " %>
     <%= f.text_field :prerequisites %>
+    </div><br/>
+    <div>
     <%= f.label :requirements, "Course requirements: " %>
     <%= f.collection_check_boxes :requirement_id, Requirement.all, :id, :name %>
+    </div><br/>
+    <div>
+    <%= f.label :subject, "Choose a subject area: " %>
+    <%= f.collection_select( :subject_id, Subject.all, :id, :name, {prompt: "select a subject"}) %>
+    <%= f.label :subject_attributes, "or enter a new subject: " %>
+    <%= f.fields_for :subject_attributes do |n|%>
+        <%= n.text_field :name %>
+    <% end %>
+    </div><br/>
+    <div>
     <%= f.submit "Create course" %>
+    </div>
 <% end %>
