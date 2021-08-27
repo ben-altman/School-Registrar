@@ -2,15 +2,15 @@
 <%= form_with url: courses_path do |f| %>
     <div>
     <%= f.label :title, "Course title: " %>
-    <%= f.text_field :title %>
+    <%= f.text_field :title, placeholder: "Course title" %>
     </div><br/>
     <div>
     <%= f.label :size, "Class size: " %>
-    <%= f.number_field :size %>
+    <%= f.number_field :size, placeholder: "Maximum number" %>
     </div><br/>
     <div>
     <%= f.label :size, "Prerequisites: " %>
-    <%= f.text_field :prerequisites %>
+    <%= f.text_field :prerequisites, placeholder: "List all" %>
     </div><br/>
     <div>
     <%= f.label :requirements, "Course requirements: " %>
@@ -18,7 +18,7 @@
     </div><br/>
     <div>
     <%= f.label :subject, "Choose a subject area: " %>
-    <%= f.collection_select( :subject_id, Subject.all, :id, :name, {prompt: "select a subject"}) %>
+    <%= f.collection_select( :subject_id, Subject.all, :id, :name, {prompt: true}) %>
     <%= f.label :subject_attributes, "or enter a new subject: " %>
     <%= f.fields_for :subject_attributes do |n|%>
         <%= n.text_field :name %>
