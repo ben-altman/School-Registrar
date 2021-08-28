@@ -5,12 +5,23 @@ class CoursesController < ApplicationController
     
     def create
         byebug
+        @course = Course.new(course_params)
+
+        if @course.save
+            redirect_to course_path(@course)
+        else
+            render :new
+        end
     end
 
-    def edit
-    end
-    
     def delete
 
     end
+
+    private
+
+    def course_params
+
+    end
 end
+    
