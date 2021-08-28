@@ -27,7 +27,7 @@ class CoursesController < ApplicationController
             :size,
             :prerequisites,
             requirement_id: [],
-            :subject_id,
+            subject_id: [],
             subject_attributes: [:name]
         )
     end

@@ -1,5 +1,5 @@
 
-<%= form_with @course do |f| %>
+<%= form_with model: @course do |f| %>
     <div>
     <%= f.label :title, "Course title: " %>
     <%= f.text_field :title, placeholder: "Course title" %>
@@ -15,9 +15,13 @@
     <div>
     <%= f.label :requirements, "Course requirements: " %>
     <%= f.collection_check_boxes :requirement_id, Requirement.all, :id, :name %>
+    <%= f.label :requirement_attributes, "or enter a new subject: " %>
+    <%= f.fields_for :requirement_attributes do |n|%>
+        <%= n.text_field :name %>
+    <% end %>
     </div><br/>
     <div>
-    <%= f.label :subject, "Choose a subject area: " %>
+    <%= f.label :subject_id, "Choose a subject area: " %>
     <%= f.collection_select( :subject_id, Subject.all, :id, :name, {prompt: true}) %>
     <%= f.label :subject_attributes, "or enter a new subject: " %>
     <%= f.fields_for :subject_attributes do |n|%>
