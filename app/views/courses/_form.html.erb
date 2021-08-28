@@ -1,5 +1,5 @@
 
-<%= form_with url: courses_path do |f| %>
+<%= form_with @course do |f| %>
     <div>
     <%= f.label :title, "Course title: " %>
     <%= f.text_field :title, placeholder: "Course title" %>
@@ -28,5 +28,5 @@
     <%= f.submit "Create course" %>
     </div>
 
-    
+
 <% end %>
