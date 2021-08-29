@@ -1,6 +1,6 @@
 <h1><%= @course.title %></h1>
 
-Subject area: <%= @course.subject.name %>
+Subject area: <%= link_to "#{@course.subject.name}", subject_path(@course.subject) %>
 <br/>
 Prerequisites: <%= @course.prerequisites %>
 <br/>
