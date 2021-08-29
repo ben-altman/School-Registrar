@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   get '/signup', to: 'teachers#new'
   post '/signup', to: 'teachers#create', as: 'teachers'
 
-  root 'sessions#welcome'
+  root 'static#welcome'
 
   
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

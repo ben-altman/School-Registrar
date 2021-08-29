@@ -1,8 +1,5 @@
 class SessionsController < ApplicationController
     
-    def welcome
-    end
-
     # omniauth login, see #from_omniauth in Teacher model
     def omniauth
         teacher = Teacher.from_omniauth(request.env['omniauth.auth'])
