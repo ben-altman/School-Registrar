@@ -6,8 +6,6 @@ class CoursesController < ApplicationController
     end
     
     def create
-        # byebug
-        # @course = Course.new(course_params)
         @course = current_user.courses.build(course_params)
         if @course.save
             redirect_to course_path(@course)
@@ -29,6 +27,7 @@ class CoursesController < ApplicationController
     end
 
     def update
+    # byebug
         @course = Course.find(params[:id])
         if @course.update(course_params)
             redirect_to course_path(@course)
@@ -51,7 +50,7 @@ class CoursesController < ApplicationController
             :size,
             :prerequisites,
             requirement_ids: [],
-            requirements_attributes: [:name],
+            new_requirement_attributes: [:name],
             :subject_id => [],
             subject_attributes: [:name]
         )

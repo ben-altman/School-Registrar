@@ -15,8 +15,8 @@
     <div>
     <%= f.label :requirements, "Course requirements: " %>
     <%= f.collection_check_boxes :requirement_ids, Requirement.all, :id, :name %>
-    <%= f.label :requirement_attributes, "or enter a new requirement: " %>
-    <%= f.fields_for :requirement_attributes do |n|%>
+    <%= f.label :new_requirement_attributes, "or enter a new requirement: " %>
+    <%= f.fields_for :new_requirement_attributes do |n|%>
         <%= n.text_field :name %>
     <% end %>
     </div><br/>
@@ -29,7 +29,7 @@
     <% end %>
     </div><br/>
     <div>
-    <%= f.submit "Create course" %>
+    <%= f.submit %>
     </div>
 
 
