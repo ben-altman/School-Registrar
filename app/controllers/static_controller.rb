@@ -4,7 +4,7 @@ class StaticController < ApplicationController
     end
 
     def home
-
+        @teacher = current_user
     end
 
 end

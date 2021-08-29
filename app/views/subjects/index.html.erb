@@ -1,1 +1,7 @@
 <h1>Subject Area Index</h1>
+
+<ul>
+<% @subjects.each do |s| %>
+    <li><%= link_to "#{s.name}", subject_path(s) %></li>
+<% end %>
+</ul>
