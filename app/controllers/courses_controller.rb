@@ -2,17 +2,26 @@ class CoursesController < ApplicationController
 
     def new
         @course = Course.new
+        # @course.subject.build
     end
     
     def create
-        byebug
+        # byebug
         # @course = Course.new(course_params)
-        # @course = current_user.courses.build(course_params())
-        # if @course.save
-        #     redirect_to course_path(@course)
-        # else
-        #     render :new
-        # end
+        @course = current_user.courses.build(course_params)
+        if @course.save
+            redirect_to course_path(@course)
+        else
+            render :new
+        end
+    end
+
+    def index
+
+    end
+
+    def show
+        @course = Course.find(params[:id])
     end
 
     def delete
@@ -26,8 +35,9 @@ class CoursesController < ApplicationController
             :title,
             :size,
             :prerequisites,
-            requirement_id: [],
-            subject_id: [],
+            requirement_ids: [],
+            requirements_attributes: [:name],
+            :subject_id => [],
             subject_attributes: [:name]
         )
     end
