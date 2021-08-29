@@ -1,0 +1,13 @@
+<h1><%= @course.title %></h1>
+
+Subject area: <%= @course.subject.name %>
+
+Prerequisites: <%= @course.prerequisites %>
+
+Teacher: <%= @course.teacher.name %>
+
+Requirements: 
+<% @course.requirements.each do |r| %>
+    <%= r.name %>
+<% end %>
+
