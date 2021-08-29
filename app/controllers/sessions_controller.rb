@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
     # byebug
         if teacher.valid?
             session[:teacher_id] = teacher.id
-            redirect_to teacher_path(teacher)
+            redirect_to home_path
         else
             redirect_to 'login'
         end
@@ -24,7 +24,7 @@ class SessionsController < ApplicationController
     # byebug
         if @teacher.try(:authenticate, params[:teacher][:password])
             session[:teacher_id] = @teacher.id
-            redirect_to teacher_path(@teacher)
+            redirect_to home_path
         else
             flash[:error] = 'Incorrect username or password'
             redirect_to 'login'

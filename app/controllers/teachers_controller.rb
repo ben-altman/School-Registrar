@@ -11,7 +11,7 @@ class TeachersController < ApplicationController
     if @teacher.save
       #log in teacher
       session[:teacher_id] = @teacher.id
-      redirect_to teacher_path(@teacher)
+      redirect_to home_path
     else
       render :new
     end

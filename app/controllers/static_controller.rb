@@ -1,6 +1,10 @@
-def welcome
-end
+class StaticController < ApplicationController
 
-def home
+    def welcome
+    end
+
+    def home
+
+    end
 
 end
