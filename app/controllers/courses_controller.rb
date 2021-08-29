@@ -24,6 +24,14 @@ class CoursesController < ApplicationController
         @course = Course.find(params[:id])
     end
 
+    def edit
+        @course = Course.find(params[:id])
+    end
+
+    def update
+
+    end
+
     def delete
         @course = course.find(params[:id])
         @course.destroy
