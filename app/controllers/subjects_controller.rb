@@ -1,2 +1,6 @@
 class SubjectsController < ApplicationController
+
+
+
+    
 end
