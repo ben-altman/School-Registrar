@@ -1,8 +1,11 @@
 class CoursesController < ApplicationController
 
     def new
-        @course = Course.new
-        # @course.subject.build
+        if params[:subject_id] && subject = Subject.find_by_id(params[:subject_id])
+            @course = subject.courses.build
+        else    
+            @course = Course.new
+        end
     end
     
     def create
