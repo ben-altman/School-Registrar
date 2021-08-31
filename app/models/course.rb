@@ -1,5 +1,6 @@
 class Course < ApplicationRecord
   validates :title, presence: :true
+  validates :size, presence: :true
 
   belongs_to :teacher
   belongs_to :subject
@@ -8,6 +9,8 @@ class Course < ApplicationRecord
   has_many :requirements, through: :course_requirements
 
   accepts_nested_attributes_for :subject, reject_if: proc {|attr| attr["name"].blank? }
+  accepts_nested_attributes_for :requirements, reject_if: proc {|attr| attr["name"].blank? }
+
   # accepts_nested_attributes_for :requirements
 
   def new_requirement_attributes=(attributes)
