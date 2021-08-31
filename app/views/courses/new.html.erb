@@ -1,8 +1,6 @@
 <h1>Add a new course to your schedule</h1>
 
-<% @course.errors.full_messages.each do |error_message| %>
-    <li><%= error_message%></li>
-<% end %><br/>
+<%= render partial: 'layouts/errors', locals: {object: @course} %>
 
 <div>
 <%= render "form" %>
