@@ -1,5 +1,7 @@
 <h1>Log In</h1>
 
+<%= flash[:error] %>
+
 <%= form_with model: @teacher, url: '/login' do |f| %>
     <%= f.label :name %>:
     <%= f.text_field :name, :required => true %>

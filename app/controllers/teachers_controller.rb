@@ -11,6 +11,7 @@ class TeachersController < ApplicationController
     if @teacher.save
       #log in teacher
       session[:teacher_id] = @teacher.id
+      flash[:message] = 'Account creation successful'
       redirect_to home_path
     else
       render :new
