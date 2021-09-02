@@ -42,3 +42,33 @@ Nested routes
 
 
 school course offerings. The user is a teacher who can create courses. Courses belong to different subject areas, so teachers can have many subjects through courses and likewise subjects have many teachers. This allows me to find or create by name new subject areas. Teachers can only edit their own courses. Courses will be the join table, and they will have a name and other attributes like prerequisites or requirements like textbooks. The latter, requirements, can be a separate class, so that when creating a course I can have checkboxes for requirements like textbook, laptop, calculator, etc.
+
+
+## NESTED FORM - COURSE - MAKE SUBJECT
+## VIEW:
+
+    <%= f.label :subject_id, "Choose a subject area: " %>
+    <%= f.collection_select( :subject_id, Subject.all, :id, :name, {prompt: true}) %>
+    <%= f.label :subject_attributes, "or enter a new subject: " %>
+    <%= f.fields_for :subject_attributes do |n|%>
+        <%= n.text_field :name %>
+    <% end %>
+
+## CONTROLLER:
+
+    def course_params
+        params.require(:course).permit(
+            :title,
+            :size,
+            :prerequisites,
+            requirement_ids: [],
+            new_requirement_attributes: [:name],
+            :subject_id => [],
+            subject_attributes: [:name]
+        )
+    end
+
+      <%= f.fields_for :subject do |s| %>
+            <%= s.label :name, "Name: " %>
+            <%= s.text_field :name %>
+        <% end %>

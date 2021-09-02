@@ -8,7 +8,8 @@ class Course < ApplicationRecord
   has_many :course_requirements
   has_many :requirements, through: :course_requirements
 
-  accepts_nested_attributes_for :subject, reject_if: proc {|attr| attr["name"].blank? }
+  # could write a custom setter for a single attribute
+  accepts_nested_attributes_for :subject, reject_if: proc { |attr| attr["name"].blank? }
   accepts_nested_attributes_for :requirements, reject_if: proc {|attr| attr["name"].blank? }
 
   # accepts_nested_attributes_for :requirements

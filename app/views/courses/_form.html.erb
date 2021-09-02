@@ -1,35 +1,38 @@
 
 <%= form_with model: @course do |f| %>
     <div>
-    <%= f.label :title, "Course title: " %>
-    <%= f.text_field :title, placeholder: "Course title" %>
+        <%= f.label :title, "Course title: " %>
+        <%= f.text_field :title, placeholder: "Course title" %>
     </div><br/>
     <div>
-    <%= f.label :size, "Class size: " %>
-    <%= f.number_field :size, placeholder: "Maximum number" %>
+        <%= f.label :size, "Class size: " %>
+        <%= f.number_field :size, placeholder: "Maximum number" %>
     </div><br/>
     <div>
-    <%= f.label :size, "Prerequisites: " %>
-    <%= f.text_field :prerequisites, placeholder: "List all" %>
+        <%= f.label :size, "Prerequisites: " %>
+        <%= f.text_field :prerequisites, placeholder: "List all" %>
     </div><br/>
     <div>
-    <%= f.label :requirements, "Course requirements: " %>
-    <%= f.collection_check_boxes :requirement_ids, Requirement.all, :id, :name %>
-    <%= f.label :new_requirement_attributes, "or enter a new requirement: " %>
-    <%= f.fields_for :new_requirement_attributes do |n|%>
+        <%= f.label :requirements, "Course requirements: " %>
+        <%= f.collection_check_boxes :requirement_ids, Requirement.all, :id, :name %>
+        <%= f.label :new_requirement_attributes, "or enter a new requirement: " %>
+        <%= f.fields_for :new_requirement_attributes do |n|%>
         <%= n.text_field :name %>
     <% end %>
     </div><br/>
     <div>
-    <%= f.label :subject_id, "Choose a subject area: " %>
-    <%= f.collection_select( :subject_id, Subject.all, :id, :name, {prompt: true}) %>
-    <%= f.label :subject_attributes, "or enter a new subject: " %>
-    <%= f.fields_for :subject_attributes do |n|%>
-        <%= n.text_field :name %>
-    <% end %>
+        <%= f.label :subject_id, "Choose a subject area: " %>
+        <%= f.collection_select( :subject_id, Subject.all, :id, :name, {prompt: true}) %>
+    </div>
+    <div>
+        <h4>or enter a new subject: </h4>
+        <%= f.fields_for :subject do |s| %>
+            <%= s.label :name, "Name: " %>
+            <%= s.text_field :name %>
+        <% end %>
     </div><br/>
     <div>
-    <%= f.submit %>
+        <%= f.submit %>
     </div>
 
 

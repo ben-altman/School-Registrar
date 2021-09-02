@@ -1,14 +1,17 @@
 class CoursesController < ApplicationController
 
     def new
+        # is the route nested and legitimate?
         if params[:subject_id] && subject = Subject.find_by_id(params[:subject_id])
             @course = subject.courses.build
         else    
             @course = Course.new
+            @course.build_subject
         end
     end
     
     def create
+        # byebug
         @course = current_user.courses.build(course_params)
         if @course.save
             redirect_to course_path(@course)
@@ -39,8 +42,8 @@ class CoursesController < ApplicationController
         end
     end
 
-    def delete
-        @course = course.find(params[:id])
+    def destroy
+        @course = Course.find(params[:id])
         @course.destroy
         redirect_to courses_path
     end
@@ -52,9 +55,9 @@ class CoursesController < ApplicationController
             :title,
             :size,
             :prerequisites,
+            :subject_id,
             requirement_ids: [],
             new_requirement_attributes: [:name],
-            :subject_id => [],
             subject_attributes: [:name]
         )
     end
