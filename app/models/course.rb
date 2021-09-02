@@ -5,7 +5,7 @@ class Course < ApplicationRecord
   belongs_to :teacher
   belongs_to :subject
 
-  has_many :course_requirements
+  has_many :course_requirements, :dependent => :destroy
   has_many :requirements, through: :course_requirements
 
   # could write a custom setter for a single attribute
