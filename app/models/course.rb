@@ -12,7 +12,10 @@ class Course < ApplicationRecord
   accepts_nested_attributes_for :subject, reject_if: proc { |attr| attr["name"].blank? }
   accepts_nested_attributes_for :requirements, reject_if: proc {|attr| attr["name"].blank? }
 
-  # accepts_nested_attributes_for :requirements
+  # def subject_attributes=(attributes)
+  #   subject = Subject.find_or_create_by(attributes)
+  #   self.subject = subject if subject.valid? || !self.vet
+  # end
 
   def new_requirement_attributes=(attributes)
     requirement = Requirement.find_or_create_by(attributes)

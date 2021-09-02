@@ -25,7 +25,11 @@ class CoursesController < ApplicationController
     end
 
     def show
-        @course = Course.find(params[:id])
+        if Course.find_by(id: params[:id])
+            @course = Course.find(params[:id])
+        else 
+            redirect_to subjects_path
+        end
     end
 
     def edit
@@ -45,7 +49,7 @@ class CoursesController < ApplicationController
     def destroy
         @course = Course.find(params[:id])
         @course.destroy
-        redirect_to courses_path
+        redirect_to subjects_path
     end
 
     private
