@@ -1,5 +1,6 @@
 class TeachersController < ApplicationController
-  
+  before_action :check_if_logged_in
+
   # signup form
   def new
     @teacher = Teacher.new
