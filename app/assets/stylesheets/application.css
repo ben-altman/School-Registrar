@@ -13,3 +13,9 @@
  *= require_tree .
  *= require_self
  */
+
+.nav-link {
+    text-align: center;
+    margin-right: 4.5em;
+}
+  

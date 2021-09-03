@@ -10,9 +10,10 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
+  <%= display_nav_bar %>
   <body>
 
     <%= yield %>
-    <%= link_to "Logout", logout_path, method: :delete %>
+
   </body>
 </html>
