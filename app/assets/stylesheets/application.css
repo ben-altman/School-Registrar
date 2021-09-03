@@ -14,6 +14,14 @@
  *= require_self
  */
 
+.main-body {
+    background-color:ivory;
+}
+
+.nav-bar {
+    background-color:powderblue;
+    padding: 15px
+}
 .nav-link {
     text-align: center;
     margin-right: 4.5em;
