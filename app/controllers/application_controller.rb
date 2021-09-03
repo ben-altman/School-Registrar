@@ -10,6 +10,7 @@ class ApplicationController < ActionController::Base
     end
 
     def check_if_logged_in
+        flash.alert = "You must be logged in."
         redirect_to root_path if !logged_in?
     end
 end
