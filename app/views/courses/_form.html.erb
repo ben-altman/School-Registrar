@@ -17,8 +17,8 @@
 
     <div>
         <%= f.label :requirements, "Course requirements" %><br/>
-        <%= f.collection_check_boxes :requirement_ids, Requirement.all, :id, :name %><br/>
-        <h4><%= f.label :new_requirement_attributes, "or enter a new requirement: " %></h4>
+        <%= f.collection_check_boxes :requirement_ids, Requirement.all, :id, :name %><br/><br/>
+        <strong><%= f.label :new_requirement_attributes, "or enter a new requirement: " %></strong>
         <%= f.fields_for :new_requirement_attributes do |n|%>
             <%= n.text_field :name %>
         <% end %>
@@ -28,12 +28,11 @@
         <div>
             <%= f.label :subject_id, "Choose a subject area" %><br/>
             <%= f.collection_select( :subject_id, Subject.all, :id, :name, {:include_blank => true}) %>
-        </div>
+        </div><br/>
 
         <div>
-            <h4>or enter a new subject: </h4>
+            <strong>or enter a new subject: </strong>
             <%= f.fields_for :subject do |s| %>
-                <%= s.label :name, "Name: " %>
                 <%= s.text_field :name, value: "" %>
             <% end %>
         </div><br/>
