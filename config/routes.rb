@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resources :subjects, only: [:index, :show] do
-    resources :courses
+    resources :courses, only: [:new, :create, :index]
   end
   
   resources :courses
