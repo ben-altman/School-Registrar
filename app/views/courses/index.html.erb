@@ -1,0 +1,7 @@
+<h1><%= @subject.name %> courses: </h1>
+
+<ul>
+  <% @courses.each do |c|%>
+    <li><strong><%= link_to "#{c.title}", course_path(c) %></strong> <%=c.teacher.name%> </li>
+  <% end %>
+</ul>

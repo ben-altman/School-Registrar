@@ -22,6 +22,7 @@ class CoursesController < ApplicationController
     end
 
     def index
+        @subject = Subject.find_by_id(params[:subject_id])
         @courses = Course.all
     end
 
