@@ -1,8 +1,9 @@
 <h1><%= @subject.name %></h1>
 
+<h3><%= @subject.name %> Teachers</h3>
 <ul>
-  <% @subject.teachers.each do |t|%>
-    <li><strong><%= link_to "#{t.name}", teacher_path(t) %></strong> email: <%= t.email %> </li>
+  <% @subject.teachers.uniq.each do |t|%>
+    <li><strong><%= link_to "#{t.name}", teacher_path(t) %></strong>, email: <%= t.email %> </li>
   <% end %>
 </ul>
 <br/>
