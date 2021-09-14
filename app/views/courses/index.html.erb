@@ -2,6 +2,9 @@
 
 <ul>
   <% @courses.each do |c|%>
-    <li><strong><%= link_to "#{c.title}", course_path(c) %></strong> <%=c.teacher.name%> </li>
+    <li><strong><%= link_to "#{c.title}", course_path(c) %></strong> taught by <%=c.teacher.name%> </li>
   <% end %>
 </ul>
+<br/>
+
+<%= link_to "Add a new #{@subject.name} course", new_subject_course_path(@subject) %>

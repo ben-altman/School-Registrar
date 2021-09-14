@@ -1,7 +1,8 @@
 <h1>Subject Area Index</h1>
 
+<p>Click a subject to see course listings.</p>
 <ul>
 <% @subjects.each do |s| %>
-    <li><%= link_to "#{s.name}", subject_path(s) %></li>
+    <li><%= link_to "#{s.name}", subject_courses_path(s) %></li>
 <% end %>
 </ul>

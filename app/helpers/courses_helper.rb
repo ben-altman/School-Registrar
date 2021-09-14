@@ -3,7 +3,7 @@ module CoursesHelper
     def display_links
         if @course.teacher == current_user
             edit_link
-            delete_link
+            # delete_link
         end
     end
 
