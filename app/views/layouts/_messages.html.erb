@@ -1,0 +1,7 @@
+<ul>
+    <% object.errors.full_messages.each do |error_message| %>
+        <div class="error-text">
+        <li><%= error_message %></li>
+        </div>
+    <% end %>
+</ul>

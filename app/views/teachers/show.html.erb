@@ -1,5 +1,7 @@
 <h1><%= "Hello #{@teacher.name}" %></h1>
 
+<%= flash[:notice] %>
+
 <h2>Your Courses:</h2>
 <ul>
 <% @teacher.courses.each do |c| %>

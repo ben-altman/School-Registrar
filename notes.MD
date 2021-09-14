@@ -68,7 +68,8 @@ school course offerings. The user is a teacher who can create courses. Courses b
         )
     end
 
-      <%= f.fields_for :subject do |s| %>
-            <%= s.label :name, "Name: " %>
-            <%= s.text_field :name %>
-        <% end %>
+<ul>
+    <% object.errors.full_messages.each do |error_message| %>
+        <li><%= error_message%></li>
+    <% end %>
+</ul>

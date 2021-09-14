@@ -1,5 +1,5 @@
 class CoursesController < ApplicationController
-    before_action :check_if_logged_in
+    before_action :check_if_logged_in, :not_your_course, only: [:edit, :update, :destroy]
 
     def new
         # is the route nested and legitimate?
@@ -35,11 +35,11 @@ class CoursesController < ApplicationController
     end
 
     def edit
+        raise params
         @course = Course.find(params[:id])
     end
 
     def update
-    # byebug
         @course = Course.find(params[:id])
         if @course.update(course_params)
             redirect_to course_path(@course)
@@ -66,6 +66,13 @@ class CoursesController < ApplicationController
             new_requirement_attributes: [:name],
             subject_attributes: [:name]
         )
+    end
+
+    def not_your_course
+        @course = Course.find(params[:id])
+        if @course.teacher != current_user
+            redirect_to teacher_path(current_user), notice: "You can only edit your own courses."
+        end
     end
 end
     
