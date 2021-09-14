@@ -7,8 +7,12 @@ class ApplicationController < ActionController::Base
         !!session[:teacher_id]
     end
 
+    # def current_user
+    #     @teacher = Teacher.find_by(id: session[:teacher_id])
+    # end
+
     def current_user
-        @teacher = Teacher.find_by(id: session[:teacher_id])
+        @current_user ||= Teacher.find(session[:teacher_id]) if session[:teacher_id]
     end
 
     def check_if_logged_in

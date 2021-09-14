@@ -24,6 +24,7 @@ class TeachersController < ApplicationController
   end
 
   def show
+    check_if_logged_in
     @teacher = Teacher.find(params[:id])
   end
 

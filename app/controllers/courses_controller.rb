@@ -1,5 +1,6 @@
 class CoursesController < ApplicationController
-    before_action :check_if_logged_in, :not_your_course, only: [:edit, :update, :destroy]
+    before_action :check_if_logged_in
+    before_action :not_your_course, only: [:edit, :update, :destroy]
 
     def new
         # is the route nested and legitimate?
@@ -23,10 +24,13 @@ class CoursesController < ApplicationController
 
     def index
         @subject = Subject.find_by_id(params[:subject_id])
-        @courses = Course.all
+        if @subject
+            @courses = @subject.courses
+        end
     end
 
     def show
+        # byebug
         if Course.find_by(id: params[:id])
             @course = Course.find(params[:id])
         else 
@@ -35,7 +39,6 @@ class CoursesController < ApplicationController
     end
 
     def edit
-        raise params
         @course = Course.find(params[:id])
     end
 
