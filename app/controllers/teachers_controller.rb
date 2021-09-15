@@ -17,10 +17,6 @@ class TeachersController < ApplicationController
     else
       render :new
     end
-
-    # return redirect_to controller: 'teachers', action: 'new' unless @teacher.save
-    # session[:teacher_id] = @teacher.id
-    # redirect_to teacher_path(@teacher)  #controller: 'welcome', action: 'home'
   end
 
   def show

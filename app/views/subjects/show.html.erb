@@ -6,7 +6,8 @@
     <li><strong><%= link_to "#{t.name}", teacher_path(t) %></strong>, email: <%= t.email %> </li>
   <% end %>
 </ul>
-<br/>
 
+<h3><%= link_to "View #{@subject.name} Courses", subject_courses_path(@subject) %></h3>
+<br/>
 
 <%= link_to "Add a new #{@subject.name} course", new_subject_course_path(@subject) %>

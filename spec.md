@@ -13,7 +13,7 @@ Specs:
 - [x] Include login (how e.g. Devise)
 - [x] Include logout (how e.g. Devise) # logout button included in layouts
 - [x] Include third party signup/login (how e.g. Devise/OmniAuth) # google omniauth2
-- [ ] Include nested resource show or index (URL e.g. users/2/recipes)
+- [x] Include nested resource show or index (URL e.g. users/2/recipes) # /subject/:id/courses
 - [x] Include nested resource "new" form (URL e.g. recipes/1/ingredients/new) # create new course within a subject area
 - [x] Include form display of validation errors (form URL e.g. /recipes/new)
 

@@ -1,10 +1,11 @@
-<h1><%= "Hello #{@teacher.name}" %></h1>
+<h1><%= @teacher.name %></h1>
 
+<p><%= @teacher.email %></p>
 <%= flash[:notice] %>
 
-<h2>Your Courses:</h2>
+<h2><%= "#{@teacher.name}'s Courses:" %></h2>
 <ul>
-<% @teacher.courses.each do |c| %>
+<% @teacher.courses.alpha.each do |c| %>
     <li><%= link_to "#{c.title}", course_path(c) %>, subject - <%= link_to "#{c.subject.name}", subject_path(c.subject) %></li>
 <% end %>
 </ul>
