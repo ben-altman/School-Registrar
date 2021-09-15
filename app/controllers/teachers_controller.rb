@@ -1,5 +1,5 @@
 class TeachersController < ApplicationController
-  before_action :check_if_logged_in
+  before_action :check_if_logged_in, except: [:new, :create]
 
   # signup form
   def new
