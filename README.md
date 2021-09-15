@@ -1,24 +1,24 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# School Registrar Rails App
 
-Things you may want to cover:
+This Rails app is one side of a school registrar app. A teacher can create courses within different subject areas and view other course offerings. This is a sample to fulfill project requirements at the Flatiron School.
 
-* Ruby version
+## Installation
+Clone this repository and execute:
 
-* System dependencies
+    $bundle install
 
-* Configuration
+Then execute:
 
-* Database creation
+    $rake db:migrate 
 
-* Database initialization
+Run the app in a local server:
 
-* How to run the test suite
+    $rails server
 
-* Services (job queues, cache servers, search engines, etc.)
+## Contributing
+ This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
-* Deployment instructions
-
-* ...
+## License
+The app is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
