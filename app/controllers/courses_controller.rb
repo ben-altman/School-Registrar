@@ -24,7 +24,7 @@ class CoursesController < ApplicationController
 
     def index
         @subject = Subject.find_by_id(params[:subject_id])
-        if
+        if @subject
             @courses = Course.by_subject(@subject).alpha
         end
     end
